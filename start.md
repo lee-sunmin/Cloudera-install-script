@@ -6,7 +6,7 @@
 CM01 | NM01 | DN01 | DN02 | DN03
 
 
-3. 접속
+2. 접속
 
 2.1 pem permission 공개 범위가 넓어서 생긴 문제로 chmod 700으로 permission 범위 변경
 ~~~
