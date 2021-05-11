@@ -81,4 +81,45 @@ E: Package 'ntp' has no installation candidate
 //
 ~~~
 
+~~~
+sudo vi /etc/ntp.conf
+
+///////////////////////////////
+// delete
+server0...
+server1...
+server2...
+
+// add
+server kr.pool.ntp.org
+server time.bora.net
+server time.kornet.net
+///////////////////////////////
+
+// 에러 발생해서 우선 건너뜀
+sudo service ntpd start 
+
+// restart
+sudo service ntp restart
+
+// Synchronize the system clock to the NTP server
+sudo ntpdate -u time.bora.net
+
+// Synchronize the hardware clock to the system clock
+sudo hwclock --systohc
+
+~~~
+
+
+결과
+~~~
+ubuntu@ip-:/etc/init.d$ ntpq -p
+     remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
+*dadns.cdnetwork 133.100.9.2      2 u   15   64  377  180.023  -12.468   8.339
++time.bora.net   202.30.200.133   3 u   12   64  360  180.833   -6.806   6.326
+~~~
+
+
+
 
